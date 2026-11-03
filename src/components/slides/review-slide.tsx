@@ -6,7 +6,7 @@ import { Gift, Percent } from "lucide-react";
 import { SlideFrame } from "@/components/deck/slide-frame";
 import { Lines } from "@/components/deck/primitives";
 import { fadeUp } from "@/components/deck/motion";
-import { PRODUCT_LINES, REVIEWS } from "@/data/plan";
+import { CAROUSEL_COUNT, PRODUCT_LINES, REVIEWS } from "@/data/plan";
 
 function ReviewCard({ no, title, ask, children }: { no: string; title: string; ask: ReactNode; children: ReactNode }) {
   return (
@@ -31,17 +31,18 @@ export function ReviewSlide() {
       subtitle="아래 내용을 확인해주시면 11월 업로드와 12월 광고를 준비하겠습니다."
     >
       <div className="grid h-full grid-cols-2 gap-6">
-        <ReviewCard no="01" title="캐러셀 카드뉴스 5종 제품군" ask={REVIEWS.first.ask}>
+        <ReviewCard no="01" title={`캐러셀 카드뉴스 ${CAROUSEL_COUNT}종 제품군`} ask={REVIEWS.first.ask}>
           <p className="text-[12.5px] font-bold text-steel">예정</p>
-          <ol className="mt-2 space-y-2">
+          {/* 6종 → 2열 3줄 (세로 한 줄이면 카드가 바닥글을 덮는다). 남는 높이는 칸이 나눠 가져 오른쪽 카드 타일과 바닥을 맞춘다 */}
+          <ol className="mt-2 grid flex-1 auto-rows-fr grid-cols-2 gap-2.5">
             {PRODUCT_LINES.map((name, i) => (
-              <li key={name} className="flex items-center gap-3 rounded-xl bg-paper px-4 py-2 ring-1 ring-hair">
+              <li key={name} className="flex items-center gap-3 rounded-xl bg-paper px-4 py-3 ring-1 ring-hair">
                 <span className="grid size-6 place-items-center rounded-full bg-cobalt text-[12px] font-bold text-white">{i + 1}</span>
-                <span className="text-[15px] font-bold text-navy">{name}</span>
+                <span className="text-[16px] font-bold text-navy">{name}</span>
               </li>
             ))}
           </ol>
-          <p className="mt-auto pt-4 text-[13px] leading-relaxed text-steel">{REVIEWS.first.note}</p>
+          <p className="pt-4 text-[13px] leading-relaxed text-steel">{REVIEWS.first.note}</p>
         </ReviewCard>
 
         <ReviewCard no="02" title="11~12월 이벤트 여부" ask={<Lines lines={REVIEWS.second.ask} />}>

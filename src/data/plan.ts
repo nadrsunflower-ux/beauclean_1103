@@ -3,7 +3,10 @@
  * 배열로 된 문구는 사용자가 지정한 위치에서 줄을 바꾼다(한 칸 = 한 줄).
  */
 
-export const PRODUCT_LINES = ["여성용 위생팬티", "남성용 위생팬티", "페이스타올", "헤어밴드", "터번 헤어밴드"] as const;
+export const PRODUCT_LINES = ["여성용 위생팬티", "남성용 위생팬티", "페이스타올", "수건", "헤어밴드", "터번 헤어밴드"] as const;
+
+/** 캐러셀 카드뉴스 종 수 = 제품군 수 (문구의 "N종"은 모두 여기서 나온다) */
+export const CAROUSEL_COUNT = PRODUCT_LINES.length;
 
 export const plan1 = {
   no: 1,
@@ -37,7 +40,7 @@ export const plan3 = {
 
 export const SUMMARY = {
   nov: {
-    carousel: { count: 5, text: "제품군을 소개하는 캐러셀 카드뉴스 5종 업로드" },
+    carousel: { count: CAROUSEL_COUNT, text: `제품군을 소개하는 캐러셀 카드뉴스 ${CAROUSEL_COUNT}종 업로드` },
     fairytale: { count: 6, text: "콘텐츠로 홍보하는 뷰클린 전용 '절레동화' 6편 업로드" },
   },
   dec: [
@@ -49,7 +52,7 @@ export const SUMMARY = {
 
 export const REVIEWS = {
   first: {
-    ask: "11월에 업로드되는 캐러셀 카드뉴스 5종 제품군을 확인해주세요",
+    ask: `11월에 업로드되는 캐러셀 카드뉴스 ${CAROUSEL_COUNT}종 제품군을 확인해주세요`,
     note: "*여기에서 변경 또는 수정하고 싶으신 부분이 있다면 말씀해주세요",
   },
   second: {

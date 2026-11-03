@@ -50,7 +50,7 @@ const PREVIEWS = [
   { src: "/plan/jeolle-2.png", alt: "절레동화 선녀와 나무꾼 2화 장면" },
 ];
 
-const nov = SUMMARY.nov.carousel.count + SUMMARY.nov.fairytale.count; // 11편
+const nov = SUMMARY.nov.carousel.count + SUMMARY.nov.fairytale.count; // 캐러셀 6 + 절레동화 6 = 12편
 const dec = SUMMARY.dec[0].count; // 8편
 
 const GROUPS = [

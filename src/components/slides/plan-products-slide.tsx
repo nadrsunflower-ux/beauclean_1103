@@ -6,7 +6,7 @@ import { SlideFrame } from "@/components/deck/slide-frame";
 import { Block } from "@/components/deck/primitives";
 import { Lightbox } from "@/components/deck/lightbox";
 import { fadeUp } from "@/components/deck/motion";
-import { PRODUCT_LINES, plan1 } from "@/data/plan";
+import { CAROUSEL_COUNT, PRODUCT_LINES, plan1 } from "@/data/plan";
 import { coverSrc, posts } from "@/data/report2026";
 
 const CAROUSELS = [
@@ -20,7 +20,7 @@ export function PlanProductsSlide() {
       sectionNo="02"
       section="기존 현황 분석 및 운영 계획"
       title={`${plan1.no}. ${plan1.title}`}
-      subtitle="11월 · 제품군별 소개와 상세를 담은 캐러셀 카드뉴스 5종"
+      subtitle={`11월 · 제품군별 소개와 상세를 담은 캐러셀 카드뉴스 ${CAROUSEL_COUNT}종`}
       aside={
         <div className="rounded-full border border-hair bg-paper px-3.5 py-1.5 text-[12.5px] text-steel">
           카드뉴스 이미지를 누르면 크게 볼 수 있습니다
@@ -45,12 +45,13 @@ export function PlanProductsSlide() {
           <Block tone="plan" label="계획">
             <p className="text-[18px] font-bold leading-[1.45] tracking-[-0.02em] text-navy">{plan1.plan}</p>
             <div className="rounded-xl bg-paper px-3.5 py-3 ring-1 ring-hair">
-              <p className="text-[12px] font-semibold text-steel">11월 업로드 예정 5종</p>
-              <ol className="mt-2 flex flex-wrap gap-1.5">
+              <p className="text-[12px] font-semibold text-steel">11월 업로드 예정 {CAROUSEL_COUNT}종</p>
+              {/* 6종 → 3열 2줄로 고르게 (줄바꿈에 맡기면 5+1로 끊긴다) */}
+              <ol className="mt-2 grid grid-cols-3 gap-1.5">
                 {PRODUCT_LINES.map((name, i) => (
                   <li
                     key={name}
-                    className="inline-flex items-center gap-1.5 rounded-full bg-white px-2.5 py-1 text-[13px] font-bold text-navy ring-1 ring-hair"
+                    className="flex items-center gap-1.5 whitespace-nowrap rounded-full bg-white px-2.5 py-1 text-[13px] font-bold text-navy ring-1 ring-hair"
                   >
                     <span className="grid size-[18px] place-items-center rounded-full bg-cobalt text-[10.5px] font-bold text-white">
                       {i + 1}
