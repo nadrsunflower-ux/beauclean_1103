@@ -43,23 +43,6 @@ function Item({
   );
 }
 
-/** "[스튜디오] 제작 및 집행비 …" 에서 [ ] 부분만 진하게 */
-function BracketBold({ text }: { text: string }) {
-  return (
-    <>
-      {text.split(/(\[[^\]]+\])/).map((part, i) =>
-        part.startsWith("[") ? (
-          <b key={i} className="font-extrabold">
-            {part}
-          </b>
-        ) : (
-          part
-        ),
-      )}
-    </>
-  );
-}
-
 const PREVIEWS = [
   { src: "/plan/women-01.png", alt: "여성용 위생팬티 캐러셀 카드뉴스 첫 장" },
   { src: "/plan/men-01.png", alt: "남성용 위생팬티 캐러셀 카드뉴스 첫 장" },
@@ -211,7 +194,7 @@ export function SummarySlide() {
               <span className="ml-1 font-bold text-white">+ META 광고</span>
             </p>
           </header>
-          <ul className="flex flex-col gap-5 px-5 py-5">
+          <ul className="flex flex-1 flex-col justify-evenly divide-y divide-hair px-5 py-2 [&>li]:py-5">
             <Item icon={Clapperboard} tag={SUMMARY.dec[0].tag}>
               <p className="text-[15px] font-bold leading-snug text-ink">{SUMMARY.dec[0].text}</p>
             </Item>
@@ -224,17 +207,6 @@ export function SummarySlide() {
               <p className="text-[15px] font-bold leading-snug text-ink">{SUMMARY.dec[2].text}</p>
             </Item>
           </ul>
-          <div className="mt-auto px-5 pb-5">
-            <div className="rounded-xl bg-[#fff1e5] px-4 py-3 ring-1 ring-[#f3c9a6]">
-              <p className="text-[12px] font-semibold text-[#a8501a]">META 광고 비용 · 검토 사항 3</p>
-              <p className="mt-0.5 text-[22px] font-extrabold leading-tight tracking-[-0.02em] text-[#8a3f12]">
-                {SUMMARY.adCost.amount}
-              </p>
-              <p data-oneline className="mt-0.5 whitespace-nowrap text-[12px] tracking-[-0.01em] text-[#8a3f12]/85">
-                <BracketBold text={SUMMARY.adCost.detail} />
-              </p>
-            </div>
-          </div>
         </motion.section>
 
         <UploadCompare />

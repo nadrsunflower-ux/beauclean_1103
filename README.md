@@ -32,7 +32,7 @@ npm run dev                      # 수정하면서 보기 → http://localhost:3
 | 6 | 운영 계획 2 · 절레동화 (절레동화1~3.png) | `plan-reels-slide.tsx` |
 | 7 | 운영 계획 3 · META 광고 (IMG_1992.jpg) | `plan-ads-slide.tsx` + `src/components/deck/ad-plan.tsx` |
 | 8 | 요약 정리 (11월 · 12월) | `summary-slide.tsx` |
-| 9 | 검토 사항 3가지 + '광고 계획 다시 보기' 다이얼로그 | `review-slide.tsx` |
+| 9 | 검토 사항 2가지 (캐러셀 제품군 · 11~12월 이벤트) | `review-slide.tsx` |
 
 ## 고칠 곳
 
